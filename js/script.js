@@ -22,6 +22,11 @@ btnCargarUsuarios.addEventListener('click', () => {
         });
 });
 
+//contador de servicios
+contador.textContent = servicios.children.length; // inicializa el contador con el número de servicios existentes
+
+
+//agregar servicio
 btnAgregarServicio.addEventListener("click", () => {
     const nombreServicio = prompt("agrega el nombre del servicio:", "nuevo servicio");
     if (nombreServicio !== null && nombreServicio !== "") {
@@ -32,3 +37,13 @@ btnAgregarServicio.addEventListener("click", () => {
         contador.textContent = servicios.children.length; // actualiza el contador con el número de servicios
     }
 });
+
+// eliminar servicio al hacer doble click
+servicios.addEventListener("dblclick", (event) => {
+    if (event.target.tagName === "LI") {
+        servicios.removeChild(event.target);
+        // actualizar contador
+        contador.textContent = servicios.children.length; // actualiza el contador con el número de servicios
+    }
+});
+
